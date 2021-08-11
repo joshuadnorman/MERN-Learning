@@ -1,6 +1,8 @@
 import './App.css';
 import React,{Component} from 'react';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import store from './store';
 
 //Import our custom components
 import Navbar from './components/layout/Navbar';
@@ -10,6 +12,7 @@ import Register from './components/auth/Register';
 
 function App() {
   return (
+    <Provider store = {store} >
     <Router>
     <div>
       <Navbar/>
@@ -18,6 +21,7 @@ function App() {
       <Route exact path="/login" component={Login}/>
     </div>
     </Router>
+    </Provider>
   );
 }
 
